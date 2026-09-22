@@ -1,82 +1,211 @@
-# SmartStay — Hotel Booking & Dynamic Pricing
+<div align="center">
 
-A responsive React frontend for a hotel-booking system. It provides customer discovery and booking screens plus a protected administration workspace for hotels, rooms, bookings, pricing, users, and analytics.
+# 🏨 SmartStay — Luxury Hotel Booking & Dynamic AI Pricing
 
-## Run locally
+> **Next-Generation Hospitality Platform powered by React, FastAPI, Scikit-Learn Machine Learning, and Cloudflare Pages.**
 
-```bash
-npm run dev
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-hotel--booking--dynamic--pricing.pages.dev-00F5D4?style=for-the-badge&logo=cloudflare&logoColor=black)](https://hotel-booking-dynamic-pricing.pages.dev/)
+[![API Status](https://img.shields.io/badge/API-Render%20Live-46E3B7?style=for-the-badge&logo=render&logoColor=white)](https://hotel-booking-dynamic-pricing.onrender.com)
+[![Swagger Docs](https://img.shields.io/badge/Docs-Swagger%20OpenAPI-85EA2D?style=for-the-badge&logo=swagger&logoColor=black)](https://hotel-booking-dynamic-pricing.onrender.com/docs)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
+
+<br/>
+
+[![React](https://img.shields.io/badge/React-18.x-61DAFB?style=flat-square&logo=react&logoColor=black)](https://reactjs.org/)
+[![Vite](https://img.shields.io/badge/Vite-5.x-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.110+-009688?style=flat-square&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat-square&logo=python&logoColor=white)](https://python.org/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Supabase-4169E1?style=flat-square&logo=postgresql&logoColor=white)](https://supabase.com/)
+[![Scikit-Learn](https://img.shields.io/badge/ML-Scikit--Learn-F7931E?style=flat-square&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
+
+</div>
+
+---
+
+## 🌐 Live Deployments & Demo Links
+
+| Resource | Direct Link | Description |
+| :--- | :--- | :--- |
+| **🚀 Production Web App** | **[hotel-booking-dynamic-pricing.pages.dev](https://hotel-booking-dynamic-pricing.pages.dev/)** | Hosted on Cloudflare Global Edge Network |
+| **⚡ Backend API Server** | **[hotel-booking-dynamic-pricing.onrender.com](https://hotel-booking-dynamic-pricing.onrender.com)** | High-performance FastAPI backend hosted on Render |
+| **📖 Interactive API Docs** | **[hotel-booking-dynamic-pricing.onrender.com/docs](https://hotel-booking-dynamic-pricing.onrender.com/docs)** | OpenAPI Swagger interactive endpoint explorer |
+| **🎛 Admin Command Center** | **[hotel-booking-dynamic-pricing.pages.dev/admin](https://hotel-booking-dynamic-pricing.pages.dev/admin)** | Management suite for inventory, rates, bookings & analytics |
+| **📊 Dynamic Pricing Simulator**| **[hotel-booking-dynamic-pricing.pages.dev/pricing](https://hotel-booking-dynamic-pricing.pages.dev/pricing)** | Public interactive ML rate calculator & simulator |
+
+---
+
+## 🔑 Demo Access Credentials
+
+| Role | Email | Password | Access Rights |
+| :--- | :--- | :--- | :--- |
+| **Super Admin** | `manasalshegde@gmail.com` | `Hegde123@` | Full system control, dynamic pricing overrides, inventory & booking management |
+| **Backup Admin** | `admin@smartstay.com` | `Admin@123456` | Secondary administrative access |
+| **Standard Guest** | *Register any email or use OTP* | *Any password* | Hotel search, instant booking, reservation management & AI Concierge |
+
+---
+
+## ✨ Key Highlights & Features
+
+### 🌟 1. Massive Curated Inventory (70+ Luxury Stays)
+- **7 Top Travel Destinations** across India: **Goa, Mumbai, Bengaluru, Delhi, Rajasthan, Kerala, and Manali**.
+- Over **10+ distinct curated properties per region** (heritage palaces, beachfront pool villas, hill-station chalets, luxury business penthouses).
+- Each property features real photography, rich amenity tags, localized descriptions, multiple room tiers, and customer ratings.
+
+### 🤖 2. 24/7 Smart AI Concierge
+- Integrated floating assistant widget with natural conversational guidance.
+- 1-click discovery prompts: *"Recommend a luxury beach villa in Goa"*, *"Find pool suites under ₹15,000"*, *"How does AI pricing work?"*.
+- Real-time navigation hooks directing guests directly to relevant hotels and room selections.
+
+### 📈 3. Machine Learning Dynamic Pricing Engine
+- Powered by a trained **Random Forest Regressor** (`pricing_model.pkl`) calculating demand-optimized rates in real-time.
+- Multi-factor algorithm accounting for:
+  - **Occupancy Velocity** (0% to 100% room occupancy rate).
+  - **Lead Time Dynamics** (same-day booking spikes vs. early-bird discounts).
+  - **Weekend & Seasonal Surges** (Fri/Sat premium, peak vacation periods).
+  - **Competitor Indexing** & Star Category benchmarking.
+- **Interactive Pricing Simulator** (`/pricing`) allowing users and managers to test pricing variables with visual multiplier gauges.
+
+### 🛡 4. Enterprise-Grade Administration Suite
+- **Analytics Dashboard**: Revenue breakdown, RevPAR, ADR, occupancy trends via Recharts.
+- **Hotel & Room Inventory**: Real-time CRUD operations, room availability toggles, and base price adjustments.
+- **Booking Management**: Status tracking (Confirmed, Pending, Cancelled) and check-in workflows.
+- **Dynamic Pricing Controls**: Global minimum/maximum rate caps and manual multiplier overrides.
+
+### 🎨 5. Luxury Dark-Mode Aesthetic
+- Built with a curated obsidian, royal indigo (`#6366F1`), and warm gold/amber palette.
+- Glassmorphic panels, responsive layouts across mobile/desktop, micro-animations, and fast page loads.
+
+---
+
+## 🏛 System Architecture
+
+```mermaid
+flowchart TD
+    subgraph Client["Frontend Client (Cloudflare Pages)"]
+        UI["React 18 + Vite SPA"]
+        AC["AI Concierge Chatbot"]
+        DP["Dynamic Pricing Simulator"]
+        ADM["Admin Dashboard"]
+    end
+
+    subgraph Server["Backend API (Render Web Service)"]
+        F岗["FastAPI App (Python 3.11)"]
+        JWT["JWT Auth & Security"]
+        ML["In-Memory Scikit-Learn Model<br/>(pricing_model.pkl)"]
+    end
+
+    subgraph Data["Database Layer"]
+        PG["PostgreSQL (Supabase)"]
+        SQLITE["Local SQLite Fallback<br/>(hotel_booking.db)"]
+    end
+
+    UI -->|REST API Requests / Axios| F岗
+    AC -->|Prompt Advice| UI
+    DP -->|Calculate Multipliers| F岗
+    ADM -->|CRUD & Overrides| F岗
+
+    F岗 --> JWT
+    F岗 -->|Inference| ML
+    F岗 -->|SQLAlchemy ORM| PG
+    PG -.->|IPv6/Offline Fallback| SQLITE
 ```
 
-The project folder contains an ampersand, so the npm scripts deliberately invoke Vite through Node. This keeps the commands working on Windows.
+---
 
-## Main routes
+## 🛠 Tech Stack
 
-| Area | Routes |
-| --- | --- |
-| Customer | `/`, `/hotels`, `/hotels/:id`, `/booking`, `/booking/confirmation`, `/dashboard` |
-| Authentication | `/login`, `/register` |
-| Admin | `/admin`, `/admin/hotels`, `/admin/rooms`, `/admin/bookings`, `/admin/pricing`, `/admin/users`, `/admin/analytics`, `/admin/settings` |
+### Frontend
+- **Framework**: [React 18](https://react.dev/) + [Vite 5](https://vitejs.dev/)
+- **Routing**: [React Router v6](https://reactrouter.com/)
+- **Styling**: Tailwind CSS + Custom CSS Design System
+- **Data Visualization**: [Recharts](https://recharts.org/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Deployment**: [Cloudflare Pages](https://pages.cloudflare.com/) (Edge CDN with SPA redirect rules)
 
-For the demonstration login, tick **Sign in as administrator** to access the protected admin workspace.
+### Backend
+- **Framework**: [FastAPI](https://fastapi.tiangolo.com/) (Async ASGI)
+- **Server**: [Uvicorn](https://www.uvicorn.org/)
+- **ORM & Database**: [SQLAlchemy 2.0](https://www.sqlalchemy.org/) with PostgreSQL / SQLite support
+- **Authentication**: JWT Bearer Tokens (`python-jose`), `passlib[bcrypt]`, HMAC-SHA256 OTP verification
+- **Deployment**: [Render](https://render.com/)
 
-## API integration
+### Machine Learning
+- **Library**: [Scikit-Learn](https://scikit-learn.org/) + [NumPy](https://numpy.org/)
+- **Model**: Trained Random Forest Regressor serialized as `pricing_model.pkl`
 
-All frontend requests are centralized in `src/services/api.js` and use Axios. Set the backend endpoint with:
+---
 
+## 🚀 Local Development Setup
+
+### 1. Prerequisites
+- **Node.js** (v18 or higher)
+- **Python** (v3.10 or higher)
+- **Git**
+
+### 2. Clone the Repository
 ```bash
-VITE_API_BASE_URL=http://localhost:5000/api
+git clone https://github.com/Manasa-L-Hegde/hotel-booking-dynamic-pricing.git
+cd "hotel-booking-dynamic-pricing"
 ```
 
-The service is already prepared for hotel, booking, pricing, and analytics endpoints. When an endpoint is unavailable during frontend development, realistic display-only mock data from `src/data/mockData.js` is used as a fallback. Dynamic prices are never calculated by the React interface; the pricing screen is structured to display API values supplied by the pricing service.
-
-## Backend & Database (FastAPI + PostgreSQL / SQLite)
-
-The backend has been migrated to **Python (FastAPI)** with **SQLAlchemy ORM** supporting **PostgreSQL** (and Supabase) as well as zero-config local SQLite fallback, plus direct in-memory dynamic pricing ML inference (`ml/pricing_model.pkl`).
-
-### 1. Install Python Dependencies
-
+### 3. Backend Setup
 ```bash
+# Create and activate virtual environment (optional but recommended)
+python -m venv venv
+# On Windows:
+.\venv\Scripts\activate
+# On macOS/Linux:
+source venv/bin/activate
+
+# Install Python dependencies
 pip install -r requirements.txt
-```
 
-### 2. Configure Database & Environment
-
-Copy `.env.example` to `.env` and set your PostgreSQL / Supabase connection:
-
-```bash
-# Local PostgreSQL
-DATABASE_URL=postgresql://postgres:your_password@localhost:5432/hotel_booking
-
-# Or Supabase PostgreSQL
-DATABASE_URL=postgresql://postgres:[YOUR-PASSWORD]@db.[YOUR-PROJECT-REF].supabase.co:5432/postgres
-```
-
-*(Note: If no PostgreSQL instance is running locally, the backend automatically defaults to local SQLite `hotel_booking.db` so you can test immediately without setup).*
-
-### 3. Seed Database & Start Applications
-
-```bash
-# Seed initial administrator, hotels, rooms, and bookings
+# Run initial database seed (creates 70 hotels and sets admin credentials)
 npm run seed:admin
 
-# Start the FastAPI backend server (http://localhost:5000)
+# Start the FastAPI backend (runs on http://localhost:5000)
 npm run server
+```
 
-# In another terminal, start the React frontend (http://localhost:5173)
+### 4. Frontend Setup
+In a separate terminal:
+```bash
+# Install frontend dependencies
+npm install
+
+# Start Vite development server (runs on http://localhost:5173)
 npm run dev
 ```
 
-Interactive OpenAPI Swagger documentation for testing all backend routes is available at:
-```
-http://localhost:5000/docs
-```
+Visit **`http://localhost:5173`** in your browser to experience the platform locally!
 
-## Stack
+---
 
-- **Frontend**: React + Vite + React Router + Tailwind CSS + Recharts + Lucide React
-- **Backend**: Python 3 (FastAPI + Uvicorn)
-- **Database**: PostgreSQL (or Supabase / SQLite) via SQLAlchemy 2.0 ORM
-- **Machine Learning**: Scikit-Learn Random Forest (`pricing_model.pkl`) with in-memory inference
-- **Authentication**: JWT Bearer tokens + bcrypt password hashing + HMAC OTP verification
+## 📡 API Endpoint Overview
 
+| Method | Endpoint | Description | Protected |
+| :--- | :--- | :--- | :---: |
+| `POST` | `/api/auth/register` | Register a new customer | No |
+| `POST` | `/api/auth/login` | Login and obtain JWT token | No |
+| `GET` | `/api/auth/me` | Fetch authenticated user profile | Yes |
+| `GET` | `/api/hotels` | List all hotels (supports city filter & search) | No |
+| `GET` | `/api/hotels/{id}` | Get detailed hotel info with available rooms | No |
+| `POST` | `/api/hotels` | Create a new hotel | Admin Only |
+| `POST` | `/api/pricing/calculate`| Calculate real-time dynamic room price | No |
+| `GET` | `/api/bookings` | List customer bookings or all bookings | Yes |
+| `POST` | `/api/bookings` | Create a new room booking | Yes |
+| `GET` | `/api/analytics/dashboard`| Aggregate revenue, occupancy, and KPIs | Admin Only |
+
+Interactive Swagger documentation is available at **`/docs`**.
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+<div align="center">
+  <sub>Engineered with ❤️ by Manasa L Hegde for SmartStay Luxury Stays & Dynamic Hospitality.</sub>
+</div>
