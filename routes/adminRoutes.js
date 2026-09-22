@@ -1,0 +1,10 @@
+import { Router } from 'express';
+import { getActiveUsers, getDailyLoginStatistics, getLoginActivity, getLoginStatistics } from '../controllers/adminController.js';
+import { isAdmin, isAuthenticated } from '../middleware/auth.js';
+const router = Router();
+router.use(isAuthenticated, isAdmin);
+router.get('/login-activity', getLoginActivity);
+router.get('/active-users', getActiveUsers);
+router.get('/login-statistics', getLoginStatistics);
+router.get('/login-statistics/daily', getDailyLoginStatistics);
+export default router;
