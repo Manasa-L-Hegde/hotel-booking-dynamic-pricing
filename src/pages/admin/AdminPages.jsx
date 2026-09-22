@@ -445,7 +445,7 @@ export function UsersAdmin() {
           rows={[
             <tr key="admin-row">
               <td className="px-5 py-4 font-bold text-slate-900">SmartStay Administrator</td>
-              <td className="px-5 py-4 text-slate-600">manasalshegde@gmail.com</td>
+              <td className="px-5 py-4 text-slate-600">admin@smartstay.com</td>
               <td className="px-5 py-4"><span className="rounded-full bg-indigo-50 px-2.5 py-1 text-xs font-bold text-indigo-700">Super Admin</span></td>
               <td className="px-5 py-4"><StatusPill>Active</StatusPill></td>
             </tr>
