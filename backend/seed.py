@@ -17,27 +17,50 @@ def seed_database():
     Base.metadata.create_all(bind=engine)
     db = SessionLocal()
     try:
-        # 1. Seed or update Admin User
-        admin_email = settings.ADMIN_EMAIL.lower().strip()
-        existing_admin = db.query(User).filter((User.email == admin_email) | (User.phone == "+919876543210")).first()
-        if not existing_admin:
-            logger.info(f"Creating default admin user: {admin_email}")
-            admin = User(
-                name=settings.ADMIN_NAME,
-                email=admin_email,
-                phone="+919876543210",
-                password_hash=hash_password(settings.ADMIN_PASSWORD),
-                role="admin"
-            )
-            db.add(admin)
-            db.commit()
-            logger.info("Admin user created successfully.")
-        else:
-            existing_admin.email = admin_email
-            existing_admin.role = "admin"
-            existing_admin.password_hash = hash_password(settings.ADMIN_PASSWORD)
-            db.commit()
-            logger.info(f"Admin user {admin_email} role ensured as 'admin'.")
+        # 1. Seed or update Admin Users
+        admins_to_seed = [
+            {
+                "email": "manasalshegde@gmail.com",
+                "password": "Hegde123@",
+                "name": "Manasa Hegde (Admin)",
+                "phone": "+918431363152"
+            },
+            {
+                "email": "admin@smartstay.com",
+                "password": "Admin@123456",
+                "name": "SmartStay Administrator",
+                "phone": "+919876543210"
+            }
+        ]
+        custom_email = settings.ADMIN_EMAIL.lower().strip()
+        if custom_email not in ["manasalshegde@gmail.com", "admin@smartstay.com"]:
+            admins_to_seed.append({
+                "email": custom_email,
+                "password": settings.ADMIN_PASSWORD,
+                "name": settings.ADMIN_NAME,
+                "phone": "+919876543219"
+            })
+
+        for adm in admins_to_seed:
+            existing = db.query(User).filter(User.email == adm["email"]).first()
+            if not existing:
+                phone_conflict = db.query(User).filter(User.phone == adm["phone"]).first()
+                phone_val = adm["phone"] if not phone_conflict else f"+9198{abs(hash(adm['email'])) % 100000000:08d}"
+                admin_obj = User(
+                    name=adm["name"],
+                    email=adm["email"],
+                    phone=phone_val,
+                    password_hash=hash_password(adm["password"]),
+                    role="admin"
+                )
+                db.add(admin_obj)
+                db.commit()
+                logger.info(f"Created admin: {adm['email']}")
+            else:
+                existing.role = "admin"
+                existing.password_hash = hash_password(adm["password"])
+                db.commit()
+                logger.info(f"Updated user {adm['email']} to admin role with updated password.")
 
         # 2. Seed or Upsert Hotels and Rooms
         logger.info(f"Seeding / updating {len(ALL_HOTELS_DATA)} luxury hotels and rooms across India...")

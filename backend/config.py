@@ -30,8 +30,8 @@ class Settings:
     DEV_OTP_LOGGING: bool = os.getenv("DEV_OTP_LOGGING", "true").lower() in ("true", "1", "yes")
     
     # Default Admin Seed
-    ADMIN_NAME: str = os.getenv("ADMIN_NAME", "SmartStay Administrator")
-    ADMIN_EMAIL: str = os.getenv("ADMIN_EMAIL", "admin@smartstay.com")
-    ADMIN_PASSWORD: str = os.getenv("ADMIN_PASSWORD", "Admin@123456")
+    ADMIN_NAME: str = os.getenv("ADMIN_NAME", "Manasa Hegde (Admin)")
+    ADMIN_EMAIL: str = os.getenv("ADMIN_EMAIL", "manasalshegde@gmail.com")
+    ADMIN_PASSWORD: str = os.getenv("ADMIN_PASSWORD", "Hegde123@")
 
 settings = Settings()
