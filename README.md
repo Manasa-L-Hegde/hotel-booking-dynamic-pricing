@@ -26,21 +26,22 @@
 
 | Resource | Direct Link | Description |
 | :--- | :--- | :--- |
-| **🚀 Production Web App** | **[hotel-booking-dynamic-pricing.pages.dev](https://hotel-booking-dynamic-pricing.pages.dev/)** | Hosted on Cloudflare Global Edge Network |
+| **🚀 Live Application** | **[hotel-booking-dynamic-pricing.pages.dev](https://hotel-booking-dynamic-pricing.pages.dev/)** | Hosted on Cloudflare Global Edge Network |
 | **⚡ Backend API Server** | **[hotel-booking-dynamic-pricing.onrender.com](https://hotel-booking-dynamic-pricing.onrender.com)** | High-performance FastAPI backend hosted on Render |
 | **📖 Interactive API Docs** | **[hotel-booking-dynamic-pricing.onrender.com/docs](https://hotel-booking-dynamic-pricing.onrender.com/docs)** | OpenAPI Swagger interactive endpoint explorer |
-| **🎛 Admin Command Center** | **[hotel-booking-dynamic-pricing.pages.dev/admin](https://hotel-booking-dynamic-pricing.pages.dev/admin)** | Management suite for inventory, rates, bookings & analytics |
 | **📊 Dynamic Pricing Simulator**| **[hotel-booking-dynamic-pricing.pages.dev/pricing](https://hotel-booking-dynamic-pricing.pages.dev/pricing)** | Public interactive ML rate calculator & simulator |
 
 ---
 
 ## 🔑 Demo Access Credentials
 
+> [!NOTE]
+> For security and privacy, never publish personal email addresses or personal passwords on public repositories. The platform includes a sandboxed demo administrator account for testing and evaluation.
+
 | Role | Email | Password | Access Rights |
 | :--- | :--- | :--- | :--- |
-| **Super Admin** | `manasalshegde@gmail.com` | `Hegde123@` | Full system control, dynamic pricing overrides, inventory & booking management |
-| **Backup Admin** | `admin@smartstay.com` | `Admin@123456` | Secondary administrative access |
-| **Standard Guest** | *Register any email or use OTP* | *Any password* | Hotel search, instant booking, reservation management & AI Concierge |
+| **Demo Administrator** | `admin@smartstay.com` | `Admin@123456` | Full administrative control, dynamic pricing overrides, inventory & booking management |
+| **Guest User** | *Register any email or use OTP* | *Any password* | Hotel search, room booking, reservation management & AI Concierge |
 
 ---
 
